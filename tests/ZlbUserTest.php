@@ -325,6 +325,9 @@ class ZlbUserTest extends TestCase
             'realName'        => '张三', // 用户真实姓名 必传
             'signProtocol'        => 1, // 是否签署协议(1.是 2.否)   必填
             'reserveMobile'        => '15888888888', // 银行卡预留手机号   必填
+            'verifyType'        => 1, // 认证套餐  1.运营商三要素 2.银行卡四要素  必填
+            'payWay'        => 1, // 收款方式  1.银行卡支付 2.线下支付 3.支付宝支付 4.微信支付  必填
+            'receiveAccount'        => "12345", // 收款账户  银行卡支付或支付宝支付必传，传入对应的收款账号  必填
         ];
 
 
