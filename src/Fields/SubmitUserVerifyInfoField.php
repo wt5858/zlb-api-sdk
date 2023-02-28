@@ -55,6 +55,24 @@ class SubmitUserVerifyInfoField
     protected $cardFrontImg;
 
     /**
+     * 收款方式 1.银行卡支付 2.线下支付 3.支付宝支付 4.微信支付  必填
+     * @var integer
+     */
+    protected $payWay;
+
+    /**
+     * 收款账户   银行卡支付或支付宝支付必传，传入对应的收款账号
+     * @var string
+     */
+    protected $receiveAccount;
+
+    /**
+     * 认证套餐 1.运营商三要素 2.银行卡四要素  必填
+     * @var integer
+     */
+    protected $verifyType;
+
+    /**
      * 开户银行名称  非必填
      * @var string
      */
@@ -235,6 +253,61 @@ class SubmitUserVerifyInfoField
         return $this;
     }
 
+    /**
+     * @return int
+     */
+    public function getPayWay(): int
+    {
+        return $this->payWay;
+    }
+
+    /**
+     * @param  int  $payWay
+     * @return SubmitUserVerifyInfoField
+     */
+    public function setPayWay(int $payWay): SubmitUserVerifyInfoField
+    {
+        $this->payWay = $payWay;
+        return $this;
+    }
+
+    /**
+     * @return string
+     */
+    public function getReceiveAccount(): string
+    {
+        return $this->receiveAccount;
+    }
+
+    /**
+     * @param  string  $receiveAccount
+     * @return SubmitUserVerifyInfoField
+     */
+    public function setReceiveAccount(string $receiveAccount): SubmitUserVerifyInfoField
+    {
+        $this->receiveAccount = $receiveAccount;
+        return $this;
+    }
+
+    /**
+     * @return int
+     */
+    public function getVerifyType(): int
+    {
+        return $this->verifyType;
+    }
+
+    /**
+     * @param  int  $verifyType
+     * @return SubmitUserVerifyInfoField
+     */
+    public function setVerifyType(int $verifyType): SubmitUserVerifyInfoField
+    {
+        $this->verifyType = $verifyType;
+        return $this;
+    }
+
+
 
     /**
      * @param  array  $userVerifyInfoData
@@ -262,6 +335,9 @@ class SubmitUserVerifyInfoField
             'cardFrontImg' => $this->cardFrontImg,
             'bankName' => $this->bankName,
             'bankDepositName' => $this->bankDepositName,
+            'payWay' => $this->payWay,
+            'receiveAccount' => $this->receiveAccount,
+            'verifyType' => $this->verifyType,
             'signProtocol' => $this->signProtocol,
         ];
     }
