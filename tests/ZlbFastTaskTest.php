@@ -72,6 +72,7 @@ class ZlbFastTaskTest extends TestCase
             'deliveryRequirement' => '不限',
             'isAutoInvoice' => false, // 任务完成自动开票（True:自动开票（默认）False：不自动开票）
             'bounty' => 1122,// 单位分
+            'departmentId' => 123, // 部门ID  非必填
         ];
 
         $this->zlbFastTask->setInviteUserList($oldTaskInviteUserList)->setTaskObj($taskObj);

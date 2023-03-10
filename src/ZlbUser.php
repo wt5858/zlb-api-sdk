@@ -366,4 +366,16 @@ class ZlbUser extends ZlbBase
 
         return $this->sendRequest($url, $data, $this->sign);
     }
+
+    /**
+     * 查询部门ID
+     * @return array
+     */
+    public function getDepartmentAndTradeList(): array
+    {
+        $url = $this->url . ZlbHttpEnum::GET_DEPARTMENT_AND_TRADE_LIST;
+        $data = [];
+
+        return $this->sendRequest($url, $data, $this->sign);
+    }
 }

@@ -236,6 +236,7 @@ class ZlbUserTest extends TestCase
     {
         $invoiceField = new SaveInvoiceInfoField();
         $invoiceData = [
+            'departmentId'    => 1,// 部门信息(ID) 非必填
             'type'            => 1,// 发票类型(1增值税专票 2增值税普票，注意：需同贵公司财务确认) 必填
             'invoiceCate'     => '类目1',// 发票大类/类目1 必填
             'invoiceContent'  => '类目2',// 发票内容/类目2 必填
@@ -254,6 +255,15 @@ class ZlbUserTest extends TestCase
         ];
         $invoiceField->setInvoiceInfo($invoiceData);
         $response = $this->zlbUser->saveInvoiceInfo($invoiceField);
+
+        echo json_encode($response, JSON_UNESCAPED_UNICODE);
+
+        $this->assertArrayHasKey('code', $response);
+    }
+
+    public function testGetDepartmentAndTradeList()
+    {
+        $response = $this->zlbUser->getDepartmentAndTradeList();
 
         echo json_encode($response, JSON_UNESCAPED_UNICODE);
 

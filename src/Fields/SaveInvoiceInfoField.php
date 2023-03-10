@@ -14,6 +14,12 @@ namespace Zlb\SDK\Fields;
 
 class SaveInvoiceInfoField
 {
+
+    /**
+     * @var int 部门信息(ID) 非必填
+     */
+    protected $departmentId;
+
     /**
      * @var int 发票类型(1增值税专票 2增值税普票，注意：需同贵公司财务确认) 必填
      */
@@ -88,6 +94,24 @@ class SaveInvoiceInfoField
      * @var string 寄出时间 1-立即寄出 2-按周寄出 3-月底寄出 没填默认3  非必填
      */
     protected $invoiceSendType;
+
+    /**
+     * @return int
+     */
+    public function getDepartmentId(): int
+    {
+        return $this->departmentId;
+    }
+
+    /**
+     * @param  int  $departmentId
+     * @return SaveInvoiceInfoField
+     */
+    public function setDepartmentId(int $departmentId): SaveInvoiceInfoField
+    {
+        $this->departmentId = $departmentId;
+        return $this;
+    }
 
     /**
      * @return int
@@ -378,6 +402,7 @@ class SaveInvoiceInfoField
     public function getInvoiceInfoData(): array
     {
         return [
+            'departmentId'    => $this->departmentId,
             'type'            => $this->type,
             'invoiceCate'     => $this->invoiceCate,
             'invoiceContent'  => $this->invoiceContent,

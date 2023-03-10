@@ -81,4 +81,7 @@ class ZlbHttpEnum
     // 纯接口认证 验证码校验
     const SUBMIT_USER_VERIFY_CODE  = '/user-center/api/verify/submitUserVerifyCode';
 
+    // 查询部门ID
+    const GET_DEPARTMENT_AND_TRADE_LIST  = '/user-center/api/department/getDepartmentAndTradeList';
+
 }
