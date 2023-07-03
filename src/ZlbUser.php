@@ -156,17 +156,21 @@ class ZlbUser extends ZlbBase
 
     /**
      * 微信小程序实名认证
-     * @param string $auth 个人用户注册后data返回的auth
-     * @param string $callbackUrl 个人认证结果回调地址URL
+     * @param  string  $auth  个人用户注册后data返回的auth
+     * @param  string  $callbackUrl  个人认证结果回调地址URL
+     * @param  bool|null  $authTokenUrl 是否通过新链接获取获取新token路径
      * @return array
      */
-    public function getWxAuthUrl(string $auth, string $callbackUrl): array
+    public function getWxAuthUrl(string $auth, string $callbackUrl, ?bool $authTokenUrl = null): array
     {
         $url = $this->url . ZlbHttpEnum::WX_GET_TOKEN_BY_AUTH;
         $data = [
             'auth' => $auth,
             'callbackUrl' => $callbackUrl,
         ];
+        if ($authTokenUrl !== null) {
+            $data['authTokenUrl'] = $authTokenUrl;
+        }
 
         return $this->sendRequest($url, $data, $this->sign);
     }
