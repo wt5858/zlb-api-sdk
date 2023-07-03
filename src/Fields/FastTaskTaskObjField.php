@@ -66,6 +66,12 @@ trait FastTaskTaskObjField
     protected $isAutoInvoice = true;
 
     /**
+     * 支付方式(1：银行卡支付 2：线下支付 3：支付宝支付 4：微信支付)；可多选  非必填
+     * @var array
+     */
+    protected $payWays;
+
+    /**
      * @return int
      */
     public function getBounty(): int
@@ -239,9 +245,27 @@ trait FastTaskTaskObjField
      * @param  bool  $isAutoInvoice
      * @return FastTaskTaskObjField
      */
-    public function setIsAutoInvoice(bool $isAutoInvoice): FastTaskTaskObjField
+    public function setIsAutoInvoice(bool $isAutoInvoice)
     {
         $this->isAutoInvoice = $isAutoInvoice;
+        return $this;
+    }
+
+    /**
+     * @return array
+     */
+    public function getPayWays(): array
+    {
+        return $this->payWays;
+    }
+
+    /**
+     * @param  array  $payWays
+     * @return FastTaskTaskObjField
+     */
+    public function setPayWays(array $payWays)
+    {
+        $this->payWays = $payWays;
         return $this;
     }
 
@@ -274,6 +298,7 @@ trait FastTaskTaskObjField
             'deliveryRequirement' => $this->deliveryRequirement,
             'bounty' => $this->bounty,
             'isAutoInvoice' => $this->isAutoInvoice,
+            'payWays' => $this->payWays,
         ];
     }
 }
